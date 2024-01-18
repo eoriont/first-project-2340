@@ -1,4 +1,4 @@
-package com.example.firstproject.ui.dashboard;
+package com.example.firstproject.ui.userStory1;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.firstproject.databinding.FragmentDashboardBinding;
+import com.example.firstproject.databinding.FragmentUserStory1Binding;
 
-public class DashboardFragment extends Fragment {
+public class UserStory1Fragment extends Fragment {
 
-    private FragmentDashboardBinding binding;
+    private FragmentUserStory1Binding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        DashboardViewModel dashboardViewModel =
-                new ViewModelProvider(this).get(DashboardViewModel.class);
+        UserStory1Model userStory1Model =
+                new ViewModelProvider(this).get(UserStory1Model.class);
 
-        binding = FragmentDashboardBinding.inflate(inflater, container, false);
+        binding = FragmentUserStory1Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textDashboard;
-        dashboardViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textUserStory1;
+        userStory1Model.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 

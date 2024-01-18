@@ -3,29 +3,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/navigation_home">
+    app:startDestination="@+id/navigation_user_story_1">
 
     <fragment
-        android:id="@+id/navigation_home"
-        android:name="com.example.firstproject.ui.home.HomeFragment"
-        android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_user_story_1"
+        android:name="com.example.firstproject.ui.userStory1.UserStory1Fragment"
+        android:label="@string/title_user_story_1"
+        tools:layout="@layout/fragment_user_story_1" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.example.firstproject.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_user_story_2"
+        android:name="com.example.firstproject.ui.userStory2.UserStory2Fragment"
+        android:label="@string/title_user_story_2"
+        tools:layout="@layout/fragment_user_story_2" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.example.firstproject.ui.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_user_story_3"
+        android:name="com.example.firstproject.ui.userStory3.UserStory3Fragment"
+        android:label="@string/title_user_story_3"
+        tools:layout="@layout/fragment_user_story_3" />
 
     <fragment
-        android:id="@+id/navigation_fourth"
-        android:name="com.example.firstproject.ui.fourth.HomeFragment"
-        android:label="@string/title_fourth"
-        tools:layout="@layout/fragment_home" />
+        android:id="@+id/navigation_user_story_4"
+        android:name="com.example.firstproject.ui.userStory4.UserStory4Fragment"
+        android:label="@string/title_user_story_4"
+        tools:layout="@layout/fragment_user_story_4" />
 </navigation>

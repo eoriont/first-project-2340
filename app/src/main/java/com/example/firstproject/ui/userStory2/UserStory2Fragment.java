@@ -1,4 +1,4 @@
-package com.example.firstproject.ui.home;
+package com.example.firstproject.ui.userStory2;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,22 +10,22 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.firstproject.databinding.FragmentHomeBinding;
+import com.example.firstproject.databinding.FragmentUserStory2Binding;
 
-public class HomeFragment extends Fragment {
+public class UserStory2Fragment extends Fragment {
 
-    private FragmentHomeBinding binding;
+    private FragmentUserStory2Binding binding;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        HomeViewModel homeViewModel =
-                new ViewModelProvider(this).get(HomeViewModel.class);
+        UserStory2ViewModel userStory2ViewModel =
+                new ViewModelProvider(this).get(UserStory2ViewModel.class);
 
-        binding = FragmentHomeBinding.inflate(inflater, container, false);
+        binding = FragmentUserStory2Binding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textHome;
-        homeViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        final TextView textView = binding.textUserStory2;
+        userStory2ViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
