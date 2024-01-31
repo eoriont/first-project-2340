@@ -27,5 +27,20 @@
         android:id="@+id/navigation_user_story_4"
         android:name="com.example.firstproject.ui.userStory4.UserStory4Fragment"
         android:label="@string/title_user_story_4"
-        tools:layout="@layout/fragment_user_story_4" />
+        tools:layout="@layout/fragment_user_story_4" >
+        <action
+            android:id="@+id/action_navigation_user_story_4_to_navigation_create_edit_delete_task"
+            app:destination="@id/navigation_create_edit_delete_task" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_create_edit_delete_task"
+        android:name="com.example.firstproject.ui.userStory4.CreateEditDeleteTaskFragment"
+        android:label="@string/title_user_story_4"
+        tools:layout="@layout/create_edit_delete_task" >
+        <action
+            android:id="@+id/action_navigation_create_edit_delete_task_to_navigation_user_story_4"
+            app:destination="@id/navigation_user_story_4" />
+    </fragment>
 </navigation>
