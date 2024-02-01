@@ -11,6 +11,7 @@ public class UserStory3ViewModel extends ViewModel {
     public UserStory3ViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is User Story 3 fragment");
+
     }
 
     public LiveData<String> getText() {
