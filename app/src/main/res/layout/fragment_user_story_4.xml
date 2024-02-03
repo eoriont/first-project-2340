@@ -7,6 +7,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="24dp"
+        android:layout_marginTop="24dp"
         android:text="Todo List"
         android:textColor="@color/black"
         android:textSize="24sp"
@@ -20,13 +21,25 @@
         android:layout_marginLeft="24dp"
         android:text="Keep track of all your tasks here!" />
 
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Instructions"
+        android:layout_marginLeft="24dp"
+        android:layout_below="@id/subtitle"
+        android:textSize="12sp"
+        android:textColor="@color/design_default_color_primary"
+        android:layout_marginTop="12dp"
+        />
+
     <EditText
         android:id="@+id/idInput"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/subtitle"
+        android:layout_below="@id/instructions"
         android:layout_marginHorizontal="24dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="8dp"
         android:hint="What is the ID of your task?"
         android:textSize="14sp" />
 

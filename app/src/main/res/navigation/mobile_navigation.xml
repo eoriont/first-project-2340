@@ -27,5 +27,19 @@
         android:id="@+id/navigation_user_story_4"
         android:name="com.example.firstproject.ui.userStory4.UserStory4Fragment"
         android:label="@string/title_user_story_4"
-        tools:layout="@layout/fragment_user_story_4"></fragment>
+        tools:layout="@layout/fragment_user_story_4">
+        <action
+            android:id="@+id/action_navigation_user_story_4_to_navigation_todo_list_instructions"
+            app:destination="@id/navigation_todo_list_instructions" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_todo_list_instructions"
+        android:name="com.example.firstproject.ui.userStory4.InstructionsFragment"
+        android:label="Todo List Instructions"
+        tools:layout="@layout/todo_list_instructions">
+        <action
+            android:id="@+id/action_navigation_todo_list_instructions_to_navigation_user_story_4"
+            app:destination="@id/navigation_user_story_4" />
+    </fragment>
 </navigation>
