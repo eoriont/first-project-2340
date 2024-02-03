@@ -1,8 +1,11 @@
 <resources>
     <string name="app_name">First Project</string>
     <string name="title_user_story_1">User Story 1</string>
-    <string name="title_user_story_2">User Story 2</string>
+    <string name="title_user_story_2">Assignments</string>
     <string name="title_user_story_3">User Story 3</string>
     <string name="title_user_story_4">User Story 4</string>
+    <string name="enter_a_new_item">Enter a new item</string>
+    <string name="add_item">Add Item</string>
+    <string name="edit_assignment">Edit assignment</string>
 
 </resources>

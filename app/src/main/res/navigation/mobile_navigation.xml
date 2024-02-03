@@ -13,7 +13,7 @@
 
     <fragment
         android:id="@+id/navigation_user_story_2"
-        android:name="com.example.firstproject.ui.userStory2.UserStory2Fragment"
+        android:name="com.example.firstproject.ui.userStory2.AssignmentFragment"
         android:label="@string/title_user_story_2"
         tools:layout="@layout/fragment_user_story_2" />
 
