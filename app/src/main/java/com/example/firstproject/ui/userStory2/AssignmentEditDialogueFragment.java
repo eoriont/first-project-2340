@@ -13,10 +13,14 @@ import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
+import androidx.appcompat.widget.MenuPopupWindow;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.firstproject.MyReceiver;
+import com.example.firstproject.R;
+import com.example.firstproject.ui.userStory1.Class;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
@@ -37,7 +41,8 @@ public class AssignmentEditDialogueFragment extends DialogFragment {
 
     int which;
     boolean isNew;
-    EditText editTitle, editDate, editClass;
+    EditText editTitle, editDate;//, editClass;
+    Spinner editClass;
     ArrayAdapter<Assignment> adapter;
     ArrayList<Assignment> list;
 
@@ -69,9 +74,17 @@ public class AssignmentEditDialogueFragment extends DialogFragment {
         editDate.setText(current.getDate());
         editDate.setHint("Due Date");
 
-        editClass = new EditText(getContext());
-        editClass.setText(current.getAssociatedClass());
-        editClass.setHint("Associated Class");
+//        editClass = new EditText(getContext());
+//        editClass.setText(current.getAssociatedClass());
+//        editClass.setHint("Associated Class");
+
+        editClass = new Spinner(getContext());
+        ArrayAdapter<Class> adapter = new ArrayAdapter<>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, Class.classList);
+
+
+        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        editClass.setAdapter(adapter);
+
 
         LinearLayout layout = new LinearLayout(getContext());
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -88,8 +101,10 @@ public class AssignmentEditDialogueFragment extends DialogFragment {
                 .setPositiveButton("Save", (dialogInterface, x) -> {
                     String dateStr = editDate.getText().toString();
                     String titleStr = editTitle.getText().toString();
-                    String classStr = editClass.getText().toString();
-                    Assignment a = new Assignment(dateStr, titleStr, classStr);
+                    Class classObj = (Class) editClass.getSelectedItem();
+                    String classStr = classObj.getClassName();
+
+                    Assignment a = new Assignment(dateStr, titleStr, classObj);
                     list.set(which, a);
                     sorter.sort();
 

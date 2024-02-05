@@ -1,6 +1,10 @@
 package com.example.firstproject.ui.userStory1;
 
+import java.util.ArrayList;
+
 public class Class {
+
+    public static ArrayList<Class> classList = new ArrayList<>();
 
     private String className;
 
