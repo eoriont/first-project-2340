@@ -1,0 +1,107 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/backNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Back to Assignments List"
+        android:textColor="@color/design_default_color_primary" />
+
+    <TextView
+        android:id="@+id/instructionsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/backNavigation"
+        android:layout_marginTop="10dp"
+        android:text="Assignment List Instructions"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/instructionsBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/instructionsTitle"
+        android:layout_marginTop="12dp"
+        android:text="Notice the three buttons on the right side. The topmost help button brings you here, to this help page. The middle one is a toggle for how the list is sorted: Blue means it is sorted by due date, and purple means it's sorted by class size. Finally, the bottom add button creates a new assignment." />
+
+    <TextView
+        android:id="@+id/createTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/instructionsBody"
+        android:layout_marginTop="24dp"
+        android:text="Create Assignment"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/createTaskBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createTask"
+        android:layout_marginTop="10dp"
+        android:text="Before creating an assignment, make sure to create a class to associate it will. Then, click the plus button on the assignments page, and input a title and due date in the format &quot;mm/dd/yy&quot;. Then, click the save button." />
+
+
+    <TextView
+        android:id="@+id/editTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createTaskBody"
+        android:layout_marginTop="24dp"
+        android:text="Edit Assignment"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/editTaskBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTask"
+        android:layout_marginTop="10dp"
+        android:text="Simply click on the assignment you want to edit in the list. A dialogue similar to the create dialogue will show. Edit the fields to your liking and click the save button to save your edits." />
+
+
+    <TextView
+        android:id="@+id/deleteTask"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTaskBody"
+        android:layout_marginTop="24dp"
+        android:text="Delete Assignment"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/deleteTaskBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deleteTask"
+        android:layout_marginTop="10dp"
+        android:text="Simply click and hold on an assignment to delete it." />
+
+    <TextView
+        android:id="@+id/notifications"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deleteTaskBody"
+        android:layout_marginTop="24dp"
+        android:text="Notifications"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/notificationsBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/notifications"
+        android:layout_marginTop="10dp"
+        android:text="Your phone will be notified the day an assignment is due. If you create an assignment on the day it is due, it will automatically push notify your phone." />
+</RelativeLayout>

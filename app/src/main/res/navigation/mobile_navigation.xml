@@ -15,7 +15,21 @@
         android:id="@+id/navigation_user_story_2"
         android:name="com.example.firstproject.ui.userStory2.AssignmentFragment"
         android:label="@string/title_user_story_2"
-        tools:layout="@layout/fragment_user_story_2" />
+        tools:layout="@layout/fragment_assignment" >
+        <action
+            android:id="@+id/action"
+            app:destination="@id/navigation_assignments_instructions" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_assignments_instructions"
+        android:name="com.example.firstproject.ui.userStory2.AssignmentsInstructionsFragment"
+        android:label="Assignment Instructions"
+        tools:layout="@layout/assignments_instructions">
+        <action
+            android:id="@+id/action_assignments_instructions_to_assignments"
+            app:destination="@id/navigation_user_story_2" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_user_story_3"
@@ -42,4 +56,6 @@
             android:id="@+id/action_navigation_todo_list_instructions_to_navigation_user_story_4"
             app:destination="@id/navigation_user_story_4" />
     </fragment>
+
+
 </navigation>

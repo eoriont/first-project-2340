@@ -1,36 +1,27 @@
 package com.example.firstproject.ui.userStory2;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.DialogInterface;
-import android.graphics.Color;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.content.ContextCompat;
-import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.firstproject.R;
-import com.example.firstproject.databinding.FragmentUserStory2Binding;
+import com.example.firstproject.databinding.FragmentAssignmentBinding;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 
 public class AssignmentFragment extends Fragment {
 
-    private FragmentUserStory2Binding binding;
+    private FragmentAssignmentBinding binding;
     private ArrayAdapter<Assignment> itemsAdapter;
     private ListView lvItems;
     private boolean sortMode = false; // false = due date, true = course
@@ -38,7 +29,7 @@ public class AssignmentFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        binding = FragmentUserStory2Binding.inflate(inflater, container, false);
+        binding = FragmentAssignmentBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
         lvItems = binding.lvItems;
@@ -73,7 +64,22 @@ public class AssignmentFragment extends Fragment {
             sort();
             itemsAdapter.notifyDataSetChanged();
         });
+
+        binding.btnHelp.setOnClickListener(v -> {
+            NavHostFragment
+                    .findNavController(AssignmentFragment.this)
+                    .navigate(
+                            AssignmentFragmentDirections.action()
+                    );
+        });
+
         return root;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
     }
 
     public void sort() {
