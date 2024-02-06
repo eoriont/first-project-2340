@@ -15,7 +15,11 @@
         android:id="@+id/navigation_user_story_2"
         android:name="com.example.firstproject.ui.userStory2.AssignmentFragment"
         android:label="@string/title_user_story_2"
-        tools:layout="@layout/fragment_user_story_2" />
+        tools:layout="@layout/fragment_user_story_2" >
+        <action
+            android:id="@+id/action_navigation_user_story_2_to_navigation_assignments_instructions"
+            app:destination="@id/navigation_assignments_instructions" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_user_story_3"
@@ -41,5 +45,16 @@
         <action
             android:id="@+id/action_navigation_todo_list_instructions_to_navigation_user_story_4"
             app:destination="@id/navigation_user_story_4" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_assignments_instructions"
+        android:name="com.example.firstproject.ui.userStory2.AssignmentFragment"
+        android:label="Assignment Instructions"
+        tools:layout="@layout/assignments_instructions">
+        <action
+            android:id="@+id/action_navigation_assignments_instructions_to_navigation_user_story_2"
+            app:destination="@id/navigation_user_story_2" />
     </fragment>
 </navigation>
