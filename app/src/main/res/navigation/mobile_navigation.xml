@@ -9,7 +9,11 @@
         android:id="@+id/navigation_user_story_1"
         android:name="com.example.firstproject.ui.userStory1.UserStory1Fragment"
         android:label="@string/title_user_story_1"
-        tools:layout="@layout/fragment_user_story_1" />
+        tools:layout="@layout/fragment_user_story_1" >
+        <action
+            android:id="@+id/action_navigation_user_story_1_to_navigation_user_story_1_instructions"
+            app:destination="@id/navigation_user_story_1_instructions" />
+    </fragment>
 
     <fragment
         android:id="@+id/navigation_user_story_2"
@@ -55,6 +59,17 @@
         <action
             android:id="@+id/action_navigation_todo_list_instructions_to_navigation_user_story_4"
             app:destination="@id/navigation_user_story_4" />
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/navigation_user_story_1_instructions"
+        android:name="com.example.firstproject.ui.userStory1.UserStory1InstructionsFragment"
+        android:label="User Story 1 Instructions"
+        tools:layout="@layout/user_story_1_instructions">
+        <action
+            android:id="@+id/action_navigation_user_story_1_instructions_to_navigation_user_story_1"
+            app:destination="@id/navigation_user_story_1" />
     </fragment>
 
 

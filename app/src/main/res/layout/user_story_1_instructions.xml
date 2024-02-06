@@ -1,0 +1,94 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_marginHorizontal="24dp"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/backNavigation"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/design_default_color_primary"
+        android:text="Back to Classes List"
+        />
+
+    <TextView
+        android:id="@+id/instructionsTitle"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/backNavigation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Classes List Instructions"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:textSize="24sp"/>
+
+    <TextView
+        android:id="@+id/instructionsBody"
+        android:layout_below="@id/instructionsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="You will see that there are three text inputs: one for the class, one for the class teacher, and one for the class time. The following are instructions on how to add, edit, or delete classes."
+        />
+
+    <TextView
+        android:id="@+id/createTask"
+        android:layout_below="@id/instructionsBody"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Create Class"/>
+
+    <TextView
+        android:id="@+id/createTaskBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/createTask"
+        android:layout_marginTop="10dp"
+        android:text="Firstly, insert the class name in the first input. Then, type in your class teacher for the second input. Lastly, enter your class time in the third input. Press the enter button when you are finished."
+        />
+
+
+    <TextView
+        android:id="@+id/editTask"
+        android:layout_below="@id/createTaskBody"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Edit Class"/>
+
+    <TextView
+        android:id="@+id/editTaskBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/editTask"
+        android:layout_marginTop="10dp"
+        android:text="Click on the class you wish to edit once. Then, the inputs will populate with the details of that class. Change the values however you wish, and then press Enter when you are done."
+        />
+
+
+    <TextView
+        android:id="@+id/deleteTask"
+        android:layout_below="@id/editTaskBody"
+        android:layout_marginTop="24dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:textSize="18sp"
+        android:text="Delete Class"/>
+
+    <TextView
+        android:id="@+id/deleteTaskBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/deleteTask"
+        android:layout_marginTop="10dp"
+        android:text="Hold down on the class you wish to delete. It will disappear after roughly a second of holding."
+        />
+</RelativeLayout>

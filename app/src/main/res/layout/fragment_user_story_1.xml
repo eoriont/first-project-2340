@@ -6,15 +6,31 @@
     android:layout_height="match_parent"
     tools:context=".ui.userStory1.UserStory1Fragment">
 
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:text="Instructions"
+        android:textColor="@color/design_default_color_primary"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/classInput"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.046"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.64" />
+
     <EditText
+        android:id="@+id/classInput"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id = "@+id/classInput"
-        android:hint = "Enter Class"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_below="@id/instructions"
+        android:layout_marginTop="48dp"
+        android:hint="Enter Class"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="0dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
@@ -26,7 +42,7 @@
         app:layout_constraintTop_toTopOf="@+id/classInput"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="24dp"/>
+        android:layout_marginTop="48dp"/>
 
 
     <EditText

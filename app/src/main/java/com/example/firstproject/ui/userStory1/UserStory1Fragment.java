@@ -13,8 +13,11 @@ import android.widget.ListView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.navigation.fragment.NavHostFragment;
 
 import com.example.firstproject.databinding.FragmentUserStory1Binding;
+import com.example.firstproject.ui.userStory4.UserStory4Fragment;
+import com.example.firstproject.ui.userStory4.UserStory4FragmentDirections;
 
 import java.util.ArrayList;
 
@@ -61,11 +64,23 @@ public class UserStory1Fragment extends Fragment {
             }
         });
 
+        binding.instructions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment
+                        .findNavController(UserStory1Fragment.this)
+                        .navigate(
+                              UserStory1FragmentDirections
+                                        .actionNavigationUserStory1ToNavigationUserStory1Instructions()
+                        );
+            }
+        });
+
         return root;
     }
 
     private void editClass(int position) {
-        Class selectedClass = classList.get(position);
+        Class selectedClass = Class.classList.get(position);
 
         binding.classInput.setText(selectedClass.getClassName());
         binding.teacherInput.setText(selectedClass.getTeacher());
