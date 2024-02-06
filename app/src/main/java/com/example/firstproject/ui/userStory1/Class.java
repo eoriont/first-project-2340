@@ -18,12 +18,24 @@ public class Class {
         return className;
     }
 
+    public void setClassName(String className) {
+        this.className = className;
+    }
+
     public String getTeacher() {
         return teacher;
     }
 
+    public void setTeacher(String teacher) {
+        this.teacher = teacher;
+    }
+
     public String getTime() {
         return time;
+    }
+
+    public void setTime(String time) {
+        this.time = time;
     }
     @Override
     public String toString() {

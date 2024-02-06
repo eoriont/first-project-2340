@@ -9,14 +9,12 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.firstproject.databinding.FragmentUserStory1Binding;
-import com.example.firstproject.ui.userStory3.Exam;
 
 import java.util.ArrayList;
 
@@ -45,7 +43,9 @@ public class UserStory1Fragment extends Fragment {
         Button enterButton = binding.enterButton;
 
         binding.classList.setOnItemLongClickListener(this::onItemDelete);
-
+        classListView.setOnItemClickListener((parent, view, position, id) -> {
+            editClass(position);
+        });
         enterButton.setOnClickListener(v -> {
             String className = classInput.getText().toString();
             String teacher = teacherInput.getText().toString();
@@ -63,6 +63,29 @@ public class UserStory1Fragment extends Fragment {
         });
 
         return root;
+    }
+
+    private void editClass(int position) {
+        Class selectedClass = classList.get(position);
+
+        binding.classInput.setText(selectedClass.getClassName());
+        binding.teacherInput.setText(selectedClass.getTeacher());
+        binding.timeInput.setText(selectedClass.getTime());
+
+        binding.enterButton.setOnClickListener(v -> {
+            String editedClassName = binding.classInput.getText().toString();
+            String editedTeacher = binding.teacherInput.getText().toString();
+            String editedTime = binding.timeInput.getText().toString();
+
+            selectedClass.setClassName(editedClassName);
+            selectedClass.setTeacher(editedTeacher);
+            selectedClass.setTime(editedTime);
+
+            adapter.notifyDataSetChanged();
+            binding.classInput.setText("");
+            binding.teacherInput.setText("");
+            binding.timeInput.setText("");
+        });
     }
 
     public boolean onItemDelete(AdapterView<?> ad, View item, int pos, long id) {
