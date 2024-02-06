@@ -31,7 +31,6 @@ import java.util.Comparator;
 public class AssignmentFragment extends Fragment {
 
     private FragmentUserStory2Binding binding;
-    private ArrayList<Assignment> items;
     private ArrayAdapter<Assignment> itemsAdapter;
     private ListView lvItems;
     private boolean sortMode = false; // false = due date, true = course
@@ -44,8 +43,7 @@ public class AssignmentFragment extends Fragment {
 
         lvItems = binding.lvItems;
 
-        items = new ArrayList<>();
-        itemsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, items);
+        itemsAdapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, Assignment.assignments);
         lvItems.setAdapter(itemsAdapter);
 
 //        items.add(new Assignment("1/31/24", "Hw 1", "CS 2340"));
@@ -58,8 +56,8 @@ public class AssignmentFragment extends Fragment {
         lvItems.setOnItemClickListener(this::onItemClick);
 
         binding.btnNew.setOnClickListener((view) -> {
-            items.add(new Assignment());
-            AssignmentEditDialogueFragment newFragment = new AssignmentEditDialogueFragment(items, items.size()-1, true, itemsAdapter, this::sort);
+            Assignment.assignments.add(new Assignment());
+            AssignmentEditDialogueFragment newFragment = new AssignmentEditDialogueFragment(Assignment.assignments, Assignment.assignments.size()-1, true, itemsAdapter, this::sort);
             newFragment.show(getParentFragmentManager(), "edit");
 
             itemsAdapter.notifyDataSetChanged();
@@ -80,9 +78,9 @@ public class AssignmentFragment extends Fragment {
 
     public void sort() {
         if (sortMode) {
-            items.sort(Comparator.comparing(Assignment::getAssociatedClass));
+            Assignment.assignments.sort(Comparator.comparing(x -> x.getAssociatedClass().getClassName()));
         } else {
-            items.sort(Comparator.comparing(Assignment::getDate));
+            Assignment.assignments.sort(Comparator.comparing(Assignment::getDate));
         }
     }
 
@@ -93,13 +91,13 @@ public class AssignmentFragment extends Fragment {
     }
 
     public boolean onItemDelete(AdapterView<?> adapter, View item, int pos, long id) {
-        items.remove(pos);
+        Assignment.assignments.remove(pos);
         itemsAdapter.notifyDataSetChanged();
         return true;
     }
 
     public void onItemClick(AdapterView<?> adapter, View item, int pos, long id) {
-        AssignmentEditDialogueFragment newFragment = new AssignmentEditDialogueFragment(items, pos, false, itemsAdapter, this::sort);
+        AssignmentEditDialogueFragment newFragment = new AssignmentEditDialogueFragment(Assignment.assignments, pos, false, itemsAdapter, this::sort);
         newFragment.show(getParentFragmentManager(), "edit");
         itemsAdapter.notifyDataSetChanged();
     }

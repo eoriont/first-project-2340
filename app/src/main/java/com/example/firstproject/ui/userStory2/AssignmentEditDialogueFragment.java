@@ -1,23 +1,48 @@
 package com.example.firstproject.ui.userStory2;
 
+import android.app.AlarmManager;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.InputType;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
 
+import androidx.appcompat.widget.MenuPopupWindow;
 import androidx.fragment.app.DialogFragment;
 
+import com.example.firstproject.MyReceiver;
+import com.example.firstproject.R;
+import com.example.firstproject.ui.userStory1.Class;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.Year;
+import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.Locale;
 
 public class AssignmentEditDialogueFragment extends DialogFragment {
 
     int which;
     boolean isNew;
-    EditText editTitle, editDate, editClass;
+    EditText editTitle, editDate;//, editClass;
+    Spinner editClass;
     ArrayAdapter<Assignment> adapter;
     ArrayList<Assignment> list;
 
@@ -49,9 +74,17 @@ public class AssignmentEditDialogueFragment extends DialogFragment {
         editDate.setText(current.getDate());
         editDate.setHint("Due Date");
 
-        editClass = new EditText(getContext());
-        editClass.setText(current.getAssociatedClass());
-        editClass.setHint("Associated Class");
+//        editClass = new EditText(getContext());
+//        editClass.setText(current.getAssociatedClass());
+//        editClass.setHint("Associated Class");
+
+        editClass = new Spinner(getContext());
+        ArrayAdapter<Class> adapter = new ArrayAdapter<>(getContext(), androidx.appcompat.R.layout.support_simple_spinner_dropdown_item, Class.classList);
+
+
+        adapter.setDropDownViewResource(androidx.appcompat.R.layout.support_simple_spinner_dropdown_item);
+        editClass.setAdapter(adapter);
+
 
         LinearLayout layout = new LinearLayout(getContext());
         layout.setOrientation(LinearLayout.VERTICAL);
@@ -66,9 +99,20 @@ public class AssignmentEditDialogueFragment extends DialogFragment {
                 .setTitle(isNew ? "Create New Assignment" : "Edit Assignment")
                 .setView(layout)
                 .setPositiveButton("Save", (dialogInterface, x) -> {
-                    Assignment a = new Assignment(editDate.getText().toString(), editTitle.getText().toString(), editClass.getText().toString());
+                    String dateStr = editDate.getText().toString();
+                    String titleStr = editTitle.getText().toString();
+                    Class classObj = (Class) editClass.getSelectedItem();
+                    String classStr = classObj.getClassName();
+
+                    Assignment a = new Assignment(dateStr, titleStr, classObj);
                     list.set(which, a);
                     sorter.sort();
+
+                    Date date = parseDate(dateStr);
+                    Log.d("INFO", date.toString());
+                    String message = "Your assignment for class " + classStr + " is due!";
+                    MyReceiver.scheduleNotification(getContext(), titleStr, message, date);
+
                     adapter.notifyDataSetChanged();
                 })
                 .setNegativeButton("Cancel", (dialog, id) -> {
@@ -80,5 +124,16 @@ public class AssignmentEditDialogueFragment extends DialogFragment {
                 });
 
         return builder.create();
+    }
+
+    public Date parseDate(String dateStr) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yy");
+
+        LocalDate date = LocalDate.parse(dateStr, formatter);
+
+        if (date.getYear() < 2000) {
+            date = date.withYear(date.getYear() + 100);
+        }
+        return Date.from(date.atStartOfDay(ZoneId.systemDefault()).toInstant());
     }
 }
