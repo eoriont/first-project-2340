@@ -20,11 +20,10 @@ public class AssignmentsInstructionsFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-//        binding = AssignmentsInstructionsBinding.inflate(inflater, container, false);
-//        View root = binding.getRoot();
+        binding = AssignmentsInstructionsBinding.inflate(inflater, container, false);
+        View root = binding.getRoot();
 
-//        return root;
-        return inflater.inflate(R.layout.assignments_instructions, container, false);
+        return root;
     }
 
     @Override
@@ -33,12 +32,9 @@ public class AssignmentsInstructionsFragment extends Fragment {
         backNavigation = binding.backNavigation;
 
         backNavigation.setOnClickListener(v -> {
-//            NavController navController = Navigation.findNavController(getActivity(), R.id.nav_view);
-//            navController.popBackStack();
             NavHostFragment
                     .findNavController(AssignmentsInstructionsFragment.this)
-                    .navigate(R.id.action_navigation_assignments_instructions_to_navigation_user_story_2);
-//                    .navigate();
+                    .navigate(R.id.action_assignments_instructions_to_assignments);
         });
     }
 
